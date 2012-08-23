@@ -1,7 +1,7 @@
 setting_server_env
 ==================
 
-Common Settings for Server
+Common Settings for My Server
 
 対象サーバ
 ==================
