@@ -1,3 +1,3 @@
 #!/bin/bash
 
-yum install screen git
+yum -y install screen git
