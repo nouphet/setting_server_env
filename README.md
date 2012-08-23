@@ -4,6 +4,7 @@ setting_server_env
 Common Settings for Server
 
 対象サーバ
+==================
 <table>
     <tr>
         <td>OS</td>
@@ -15,7 +16,7 @@ Common Settings for Server
     </tr>
 </table>
 
-マニュアル
+スクリプト
 ==================
 
 ```bash
