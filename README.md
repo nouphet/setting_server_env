@@ -14,4 +14,5 @@ Common Settings for Server
 # curl -L https://raw.github.com/nouphet/setting_server_env/master/setting_server_env.sh | bash
 ```
 あああああ
+
 コミットテスト
