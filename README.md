@@ -13,3 +13,8 @@ Common Settings for Server
 ```bash
 # curl -L https://raw.github.com/nouphet/setting_server_env/master/setting_server_env.sh | bash
 ```
+<table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>
