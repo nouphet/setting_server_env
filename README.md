@@ -1,7 +1,7 @@
 setting_server_env
 ==================
 
-Common Setting for Server
+Common Settings for Server
 
 マニュアル
 ==================
