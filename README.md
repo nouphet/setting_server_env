@@ -22,3 +22,10 @@ Common Settings for My Server
 ```bash
 # curl -L https://raw.github.com/nouphet/setting_server_env/master/setting_server_env.sh | bash
 ```
+
+自分用おまけ
+==================
+
+```bash
+$ curl http://dyn.value-domain.com/cgi-bin/dyn.fcg?ip
+```
