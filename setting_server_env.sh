@@ -1,3 +1,3 @@
 #!/bin/bash
 
-yum -y install screen git
+yum -y install screen git tree dstats
