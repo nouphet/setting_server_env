@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# get config files
+cd ~
+wget https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig
+
 yum -y install yum-priorities
 
 ## add epel repository for CentOS 5
