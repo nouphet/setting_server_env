@@ -11,8 +11,19 @@ yum -y install yum-priorities
 # wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
 # rpm -ivh epel-release-5-4.noarch.rpm
 
-yum -y install screen git tree dstat etckeep
+yum -y install screen git tree dstat etckeeper
+cd /etc
+etckeeper init
+etckeeper commit
+etckeeper pre-commit
+etckeeper pre-commit
+etckeeper pre-install
+etckeeper post-install
+
 gem install rak
+
+# define git
+git config --global core.editor 'vim -c "set fenc=utf-8"'
 
 chkconfig ntpd on
 chkconfig ntpd --list
