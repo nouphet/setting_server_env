@@ -36,3 +36,7 @@ chkconfig yum-updatesd off
 chkconfig pcscd off
 chkconfig bluetooth off
 
+# disable SELinux
+getenforce
+setenforce 0
+
