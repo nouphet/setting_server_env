@@ -39,4 +39,5 @@ chkconfig bluetooth off
 # disable SELinux
 getenforce
 setenforce 0
+vim /etc/sysconfig/selinux
 
