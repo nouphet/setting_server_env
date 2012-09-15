@@ -8,10 +8,20 @@ mv dot.gitconfig .gitconfig
 yum -y install yum-priorities
 
 echo "
-## add epel repository for CentOS 5
+## add epel repository for CentOS 5 32bit
 # cd /usr/local/src/
 # wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
 # rpm -ivh epel-release-5-4.noarch.rpm
+
+## add epel repository for CentOS 6 64bit
+# cd /usr/local/src/
+# wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-5.noarch.rpm
+# rpm -ivh epel-release-6-5.noarch.rpm
+
+## add epel repository for CentOS 6 32bit
+# cd /usr/local/src/
+# wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/i386/epel-release-6-5.noarch.rpm
+# rpm -ivh epel-release-6-5.noarch.rpm
 "
 
 yum -y install screen git tree dstat etckeeper
