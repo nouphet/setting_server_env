@@ -27,11 +27,11 @@ echo "
 yum -y install screen git tree dstat etckeeper
 cd /etc
 etckeeper init
-etckeeper commit
 etckeeper pre-commit
 etckeeper pre-commit
 etckeeper pre-install
 etckeeper post-install
+etckeeper commit
 
 gem install rak
 
