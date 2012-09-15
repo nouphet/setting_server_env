@@ -40,6 +40,7 @@ git config --global core.editor 'vim -c "set fenc=utf-8"'
 
 chkconfig ntpd on
 chkconfig ntpd --list
+/etc/init.d/ntpd start
 
 # Stop Services for CentOS 5
 chkconfig yum-updatesd off
