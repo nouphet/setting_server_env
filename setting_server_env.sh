@@ -50,5 +50,9 @@ chkconfig bluetooth off
 # disable SELinux
 getenforce
 setenforce 0
+getenforce
 vim /etc/sysconfig/selinux
 
+# disable ip6tables
+chkconfig ip6tables off
+chkconfig ip6tables --list
