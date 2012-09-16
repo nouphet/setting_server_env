@@ -100,5 +100,7 @@ chkconfig ip6tables off
 chkconfig ip6tables --list
 
 echo ""
+echo "iptablesを必要に応じて設定して下さい。"
+echo ""
 echo "サーバをリブートして下さい。"
 echo "コマンドを実行してください。 reboot"
