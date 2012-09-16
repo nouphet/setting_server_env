@@ -20,7 +20,8 @@ cd ~/
 wget https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig
 mv dot.gitconfig ~/.gitconfig
 
-
+# setup sudo
+visudo
 
 ## install yum-priorities
 yum -y install yum-priorities
