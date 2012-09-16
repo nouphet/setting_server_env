@@ -8,10 +8,19 @@ then
     exit 1
 fi
 
+## setup for root env
+# get .bashrc
+cd ~/
+wget https://raw.github.com/nouphet/dotfiles/master/dot.bashrc_for_CentOS
+mv .bashrc .bashrc.org
+mv dot.bashrc_for_CentOS .bashrc
+
 # get config files
 cd ~/
 wget https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig
 mv dot.gitconfig ~/.gitconfig
+
+
 
 ## install yum-priorities
 yum -y install yum-priorities
