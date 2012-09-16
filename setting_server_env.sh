@@ -83,7 +83,9 @@ gem install rak
 
 # define git
 git config --global core.editor 'vim -c "set fenc=utf-8"'
+git config --global http.sslVerify false
 
+# 時刻同期デーモンの有効化
 chkconfig ntpd on
 chkconfig ntpd --list
 /etc/init.d/ntpd start
@@ -99,6 +101,7 @@ vim /etc/sysconfig/selinux
 chkconfig ip6tables off
 chkconfig ip6tables --list
 
+# finishing message
 echo ""
 echo "iptablesを必要に応じて設定して下さい。"
 echo ""
