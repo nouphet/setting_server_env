@@ -89,7 +89,11 @@ fi
 echo "Press Enter"
 read Enter
 
-yum -y install screen git tree dstat etckeeper
+yum -y install screen git tree dstat
+echo "Press Enter"
+read Enter
+
+yum --enablerepo=epel -y install etckeeper
 echo "Press Enter"
 read Enter
 
