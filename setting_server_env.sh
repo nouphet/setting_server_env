@@ -121,6 +121,11 @@ echo "# 時刻同期デーモンの有効化"
 chkconfig ntpd on
 chkconfig ntpd --list
 /etc/init.d/ntpd start
+ntpq -p
+NTP_IP=`ntpq -p |grep -v remote |grep -v "=====" |head -1 |awk '{print $2}'`
+/etc/init.d/ntpd stop
+ntpdate $NTP_IP
+/etc/init.d/ntpd start
 echo "Press Enter"
 read Enter
 
