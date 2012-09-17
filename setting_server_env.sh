@@ -5,33 +5,45 @@ USER=`whoami`
 if [ "$USER" != 'root' ]
 then
     echo "rootでコマンドを実行してください。"
+    echo "Press Enter"
     read Enter
     exit 1
 else
     echo "rootです。"
     echo "このまま処理を続行します。"
+    echo "Press Enter"
     read Enter
 fi
 
-## setup for root env
-# get .bashrc
+echo "## setup for root env"
+echo "# get .bashrc"
 cd ~/
 wget https://raw.github.com/nouphet/dotfiles/master/dot.bashrc_for_CentOS
 mv .bashrc .bashrc.org
 mv dot.bashrc_for_CentOS .bashrc
+ll ~/.bashrc
+echo "Press Enter"
+read Enter
 
-# get config files
+echo "# get config files"
 cd ~/
 wget https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig
 mv dot.gitconfig ~/.gitconfig
+ll ~/.gitconfig
+echo "Press Enter"
+read Enter
 
-# setup sudo
+echo "# setup sudo"
 visudo
+echo "Press Enter"
+read Enter
 
-## install yum-priorities
+echo "## install yum-priorities"
 yum -y install yum-priorities
+echo "Press Enter"
+read Enter
 
-## add epel repository for CentOS 6 64bit
+echo "## add epel repository for CentOS 6"
 if [ -f /etc/redhat-release ]
 then
     CHK=`egrep "CentOS release 5|Red Hat Enterprise Linux .* 5" /etc/redhat-release`
@@ -74,8 +86,13 @@ then
         fi
     fi
 fi
+echo "Press Enter"
+read Enter
 
 yum -y install screen git tree dstat etckeeper
+echo "Press Enter"
+read Enter
+
 cd /etc
 etckeeper init
 etckeeper pre-commit
@@ -83,32 +100,41 @@ etckeeper pre-commit
 etckeeper pre-install
 etckeeper post-install
 etckeeper commit
+echo "Press Enter"
+read Enter
 
 gem install rak
+echo "Press Enter"
+read Enter
 
-# define git
+echo "# define git"
 git config --global core.editor 'vim -c "set fenc=utf-8"'
 git config --global http.sslVerify false
+echo "Press Enter"
+read Enter
 
-# 時刻同期デーモンの有効化
+echo "# 時刻同期デーモンの有効化"
 chkconfig ntpd on
 chkconfig ntpd --list
 /etc/init.d/ntpd start
+echo "Press Enter"
+read Enter
 
-
-# disable SELinux
+echo "# disable SELinux"
 getenforce
 setenforce 0
 getenforce
 vim /etc/sysconfig/selinux
 
-# disable ip6tables
+echo "# disable ip6tables"
 chkconfig ip6tables off
 chkconfig ip6tables --list
 
-# finishing message
+echo "# finishing message"
 echo ""
 echo "iptablesを必要に応じて設定して下さい。"
 echo ""
 echo "サーバをリブートして下さい。"
 echo "コマンドを実行してください。 reboot"
+echo "Press Enter"
+read Enter
