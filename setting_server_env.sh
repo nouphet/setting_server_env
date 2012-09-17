@@ -21,7 +21,7 @@ cd ~/
 wget https://raw.github.com/nouphet/dotfiles/master/dot.bashrc_for_CentOS
 mv .bashrc .bashrc.org
 mv dot.bashrc_for_CentOS .bashrc
-ll ~/.bashrc
+ls -l ~/.bashrc
 echo "Press Enter"
 read Enter
 
@@ -29,7 +29,7 @@ echo "# get config files"
 cd ~/
 wget https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig
 mv dot.gitconfig ~/.gitconfig
-ll ~/.gitconfig
+ls -l ~/.gitconfig
 echo "Press Enter"
 read Enter
 
