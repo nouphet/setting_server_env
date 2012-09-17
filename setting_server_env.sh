@@ -5,7 +5,12 @@ USER=`whoami`
 if [ "$USER" != 'root' ]
 then
     echo "rootでコマンドを実行してください。"
+    read Enter
     exit 1
+else
+    echo "rootです。"
+    echo "このまま処理を続行します。"
+    read Enter
 fi
 
 ## setup for root env
