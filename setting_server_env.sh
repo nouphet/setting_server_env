@@ -27,7 +27,7 @@ read Enter
 
 echo "# get config files"
 cd ~/
-wget https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig
+wget https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig --no-check-certificate
 mv dot.gitconfig ~/.gitconfig
 ls -l ~/.gitconfig
 echo "Press Enter"
