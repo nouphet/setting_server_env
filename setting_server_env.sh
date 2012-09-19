@@ -72,14 +72,14 @@ then
         then
             echo ""
             echo "RHEL 6.x / CentOS 6.x / OEL 6.x x86_64 が検出されました。"
+            echo "# add epel repository for CentOS 6 64bit"
             cd /usr/local/src/
             wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-7.noarch.rpm
             rpm -ivh epel-release-6-7.noarch.rpm
         else
             echo ""
             echo "RHEL 6.x / CentOS 6.x / OEL 6.x 386 が検出されました。"
-            echo "対象のEPELリポジトリが設定されていません。"
-            # add epel repository for CentOS 6 32bit
+            echo "# add epel repository for CentOS 6 32bit"
             cd /usr/local/src/
             wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
             rpm -ivh epel-release-6-7.noarch.rpm
