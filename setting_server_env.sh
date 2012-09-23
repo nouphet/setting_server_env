@@ -18,7 +18,7 @@ fi
 echo "## setup for root env"
 echo "# get .bashrc"
 cd ~/
-wget https://raw.github.com/nouphet/dotfiles/master/dot.bashrc_for_CentOS
+wget --no-check-certificate https://raw.github.com/nouphet/dotfiles/master/dot.bashrc_for_CentOS
 mv .bashrc .bashrc.org
 mv dot.bashrc_for_CentOS .bashrc
 ls -l ~/.bashrc
@@ -27,7 +27,7 @@ read Enter
 
 echo "# get config files"
 cd ~/
-wget https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig --no-check-certificate
+wget --no-check-certificate https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig --no-check-certificate
 mv dot.gitconfig ~/.gitconfig
 ls -l ~/.gitconfig
 echo "Press Enter"
