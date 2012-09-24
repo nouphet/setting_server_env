@@ -25,7 +25,7 @@ Common Settings for My Server
 ```
 
 ```bash
-wget https://raw.github.com/nouphet/setting_server_env/master/setting_server_env.sh
+wget --no-check-certificate https://raw.github.com/nouphet/setting_server_env/master/setting_server_env.sh
 ```
 
 自分用おまけ
