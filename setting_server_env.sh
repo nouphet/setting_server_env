@@ -56,7 +56,9 @@ then
         then
             echo ""
             echo "RHEL 5.x / CentOS 5.x / OEL 5.x x86_64 が検出されました。"
-            echo "対象のEPELリポジトリが設定されていません。"
+            echo "# add epel repository for CentOS 5 64bit"
+	    wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
+	    rpm -ivh epel-release-5-4.noarch.rpm
         else
             echo ""
             echo "RHEL 5.x / CentOS 5.x / OEL 5.x 386 が検出されました。"
