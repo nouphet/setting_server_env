@@ -46,6 +46,13 @@ yum -y install yum-priorities
 echo "Press Enter"
 read Enter
 
+echo "## install dstat"
+cd /usr/local/src/
+wget ftp://ftp.univie.ac.at/systems/linux/dag/redhat/el5/en/x86_64/extras/RPMS/dstat-0.7.2-1.el5.rfx.noarch.rpm
+rpm -ivh dstat-0.7.2-1.el5.rfx.noarch.rpm
+echo "Press Enter"
+read Enter
+
 echo "## add epel repository for CentOS 6"
 if [ -f /etc/redhat-release ]
 then
