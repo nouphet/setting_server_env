@@ -64,14 +64,14 @@ then
             echo ""
             echo "RHEL 5.x / CentOS 5.x / OEL 5.x x86_64 が検出されました。"
             echo "# add epel repository for CentOS 5 64bit"
-	    wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
+	    wget http://ftp.riken.jp/Linux/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
 	    rpm -ivh epel-release-5-4.noarch.rpm
         else
             echo ""
             echo "RHEL 5.x / CentOS 5.x / OEL 5.x 386 が検出されました。"
             echo "# add epel repository for CentOS 5 32bit"
             cd /usr/local/src/
-            wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
+            wget http://ftp.riken.jp/Linux/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
             rpm -ivh epel-release-5-4.noarch.rpm
             #exit 1
         fi
