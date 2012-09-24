@@ -15,6 +15,9 @@ else
     read Enter
 fi
 
+echo "cd /usr/local/src/"
+cd /usr/local/src/
+
 echo "## setup for root env"
 echo "# get .bashrc"
 cd ~/
