@@ -18,7 +18,7 @@ fi
 echo "## setup for root env"
 echo "# get .bashrc"
 cd ~/
-wget https://raw.github.com/nouphet/dotfiles/master/dot.bashrc_for_CentOS
+wget --no-check-certificate https://raw.github.com/nouphet/dotfiles/master/dot.bashrc_for_CentOS
 mv .bashrc .bashrc.org
 mv dot.bashrc_for_CentOS .bashrc
 ls -l ~/.bashrc
@@ -27,7 +27,7 @@ read Enter
 
 echo "# get config files"
 cd ~/
-wget https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig
+wget --no-check-certificate https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig --no-check-certificate
 mv dot.gitconfig ~/.gitconfig
 ls -l ~/.gitconfig
 echo "Press Enter"
@@ -53,14 +53,14 @@ then
         then
             echo ""
             echo "RHEL 5.x / CentOS 5.x / OEL 5.x x86_64 が検出されました。"
-            # add epel repository for CentOS 5 32bit
-            cd /usr/local/src/
-            wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
-            rpm -ivh epel-release-5-4.noarch.rpm
+            echo "対象のEPELリポジトリが設定されていません。"
         else
             echo ""
             echo "RHEL 5.x / CentOS 5.x / OEL 5.x 386 が検出されました。"
-            echo "対象のEPELリポジトリが設定されていません。"
+            echo "# add epel repository for CentOS 5 32bit"
+            cd /usr/local/src/
+            wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
+            rpm -ivh epel-release-5-4.noarch.rpm
             #exit 1
         fi
         # Stop Services for CentOS 5
@@ -72,14 +72,14 @@ then
         then
             echo ""
             echo "RHEL 6.x / CentOS 6.x / OEL 6.x x86_64 が検出されました。"
+            echo "# add epel repository for CentOS 6 64bit"
             cd /usr/local/src/
             wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-7.noarch.rpm
             rpm -ivh epel-release-6-7.noarch.rpm
         else
             echo ""
             echo "RHEL 6.x / CentOS 6.x / OEL 6.x 386 が検出されました。"
-            echo "対象のEPELリポジトリが設定されていません。"
-            # add epel repository for CentOS 6 32bit
+            echo "# add epel repository for CentOS 6 32bit"
             cd /usr/local/src/
             wget http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
             rpm -ivh epel-release-6-7.noarch.rpm
