@@ -86,7 +86,7 @@ then
             echo "RHEL 6.x / CentOS 6.x / OEL 6.x x86_64 が検出されました。"
             echo "# add epel repository for CentOS 6 64bit"
             cd /usr/local/src/
-            wget http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
+            wget http://ftp.riken.jp/Linux/fedora/epel/6/x86_64/epel-release-6-7.noarch.rpm
             rpm -ivh epel-release-6-7.noarch.rpm
         else
             echo ""
