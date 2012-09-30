@@ -101,7 +101,7 @@ fi
 echo "Press Enter"
 read Enter
 
-yum -y install screen git tree dstat
+yum -y install screen git tree
 echo "Press Enter"
 read Enter
 
