@@ -109,6 +109,10 @@ yum --enablerepo=epel -y install etckeeper
 echo "Press Enter"
 read Enter
 
+yum --enablerepo=epel -y install bash-completion
+echo "Press Enter"
+read Enter
+
 cd /etc
 etckeeper init
 etckeeper pre-commit
