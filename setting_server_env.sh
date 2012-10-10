@@ -79,6 +79,7 @@ then
         chkconfig yum-updatesd off
         chkconfig pcscd off
         chkconfig bluetooth off
+        chkconfig cups off
     else
         if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
         then
@@ -96,6 +97,11 @@ then
             wget http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
             rpm -ivh epel-release-6-7.noarch.rpm
         fi
+        # Stop Services for CentOS 5
+        chkconfig yum-updatesd off
+        chkconfig pcscd off
+        chkconfig bluetooth off
+        chkconfig cups off
     fi
 fi
 echo "Press Enter"
