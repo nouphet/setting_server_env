@@ -97,7 +97,7 @@ then
             wget http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
             rpm -ivh epel-release-6-7.noarch.rpm
         fi
-        # Stop Services for CentOS 5
+        # Stop Services for CentOS 6
         chkconfig yum-updatesd off
         chkconfig pcscd off
         chkconfig bluetooth off
