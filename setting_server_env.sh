@@ -98,9 +98,6 @@ then
             rpm -ivh epel-release-6-7.noarch.rpm
         fi
         # Stop Services for CentOS 6
-        chkconfig yum-updatesd off
-        chkconfig pcscd off
-        chkconfig bluetooth off
         chkconfig cups off
     fi
 fi
