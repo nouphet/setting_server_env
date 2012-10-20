@@ -18,11 +18,13 @@ fi
 echo "cd /usr/local/src/"
 cd /usr/local/src/
 
-echo "## setup for root env"
-echo "# get .bashrc"
+echo "## Setup for root env"
+echo "# Get .bashrc"
 cd ~/
 wget --no-check-certificate https://raw.github.com/nouphet/dotfiles/master/dot.bashrc_for_CentOS
-mv .bashrc .bashrc.org
+if [ -f .bashrc ]; then
+	mv .bashrc .bashrc_`date +%Y%m%d%H%M%S`.org
+fi
 mv dot.bashrc_for_CentOS .bashrc
 ls -l ~/.bashrc
 echo "Press Enter"
@@ -31,6 +33,9 @@ read Enter
 echo "# get config files"
 cd ~/
 wget --no-check-certificate https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig --no-check-certificate
+if [ -f .gitconig ]; then
+	mv .gitconfig .gitconfig_`date +%Y%m%d%H%M%S`
+fi
 mv dot.gitconfig ~/.gitconfig
 ls -l ~/.gitconfig
 echo "Press Enter"
@@ -62,13 +67,17 @@ then
         if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
         then
             echo ""
+            echo "#########################################################################"
             echo "RHEL 5.x / CentOS 5.x / OEL 5.x x86_64 が検出されました。"
+            echo "#########################################################################"
             echo "# add epel repository for CentOS 5 64bit"
 	    wget http://ftp.riken.jp/Linux/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
 	    rpm -ivh epel-release-5-4.noarch.rpm
         else
             echo ""
+            echo "#########################################################################"
             echo "RHEL 5.x / CentOS 5.x / OEL 5.x 386 が検出されました。"
+            echo "#########################################################################"
             echo "# add epel repository for CentOS 5 32bit"
             cd /usr/local/src/
             wget http://ftp.riken.jp/Linux/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
@@ -84,14 +93,18 @@ then
         if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
         then
             echo ""
+            echo "#########################################################################"
             echo "RHEL 6.x / CentOS 6.x / OEL 6.x x86_64 が検出されました。"
+            echo "#########################################################################"
             echo "# add epel repository for CentOS 6 64bit"
             cd /usr/local/src/
             wget http://ftp.riken.jp/Linux/fedora/epel/6/x86_64/epel-release-6-7.noarch.rpm
             rpm -ivh epel-release-6-7.noarch.rpm
         else
             echo ""
+            echo "#########################################################################"
             echo "RHEL 6.x / CentOS 6.x / OEL 6.x 386 が検出されました。"
+            echo "#########################################################################"
             echo "# add epel repository for CentOS 6 32bit"
             cd /usr/local/src/
             wget http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
