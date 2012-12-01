@@ -139,6 +139,8 @@ etckeeper commit
 echo "Press Enter"
 read Enter
 
+yum -y install ack
+
 gem install rak
 echo "Press Enter"
 read Enter
