@@ -117,7 +117,7 @@ fi
 echo "Press Enter"
 read Enter
 
-yum -y install screen git tree
+yum -y install screen git tree ack
 echo "Press Enter"
 read Enter
 
@@ -138,8 +138,6 @@ etckeeper post-install
 etckeeper commit
 echo "Press Enter"
 read Enter
-
-yum -y install ack
 
 gem install rak
 echo "Press Enter"
