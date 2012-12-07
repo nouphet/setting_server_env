@@ -56,6 +56,7 @@ echo "## install dstat"
 
 if [ `rpm -q dstat` = "dstat-0.7.2-1.el5.rfx" ]; then
 	echo "`rpm -q dstat` がインストールされています。"
+	echo "`rpm -q dstat` をアンインストールします。"
 else
 	echo "`rpm -q dstat` がインストールされています。"
 	echo "dstat-0.7.2-1.el5.rfx.noarch.rpm をインストールします。"
