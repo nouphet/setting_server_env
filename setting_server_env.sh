@@ -109,8 +109,8 @@ then
             echo "#########################################################################"
             echo "# add epel repository for CentOS 6 64bit"
             cd /usr/local/src/
-            wget http://ftp.riken.jp/Linux/fedora/epel/6/x86_64/epel-release-6-7.noarch.rpm
-            rpm -ivh epel-release-6-7.noarch.rpm
+            wget http://ftp.riken.jp/Linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+            rpm -ivh epel-release-6-8.noarch.rpm
         else
             echo ""
             echo "#########################################################################"
@@ -118,8 +118,8 @@ then
             echo "#########################################################################"
             echo "# add epel repository for CentOS 6 32bit"
             cd /usr/local/src/
-            wget http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
-            rpm -ivh epel-release-6-7.noarch.rpm
+            wget http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
+            rpm -ivh epel-release-6-8.noarch.rpm
         fi
         # Stop Services for CentOS 6
         chkconfig cups off
