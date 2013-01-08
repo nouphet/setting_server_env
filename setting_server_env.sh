@@ -18,6 +18,26 @@ fi
 echo "cd /usr/local/src/"
 cd /usr/local/src/
 
+# タイムゾーンの変更
+# date
+# cp -p /usr/share/zoneinfo/Japan /etc/localtime
+# date
+
+# 日本語関連のパッケージをグループインストール
+# yum -y groupinstall "Japanese Support"
+
+# vim /etc/sysconfig/i18n
+# LANG="ja_JP.UTF-8"
+# source /etc/sysconfig/i18n 
+# echo $LANG
+
+#  vi ~/.bash_profile
+# 最終行に追記
+# LANG=ja_JP.UTF-8
+# export LANG
+# source ~/.bash_profile 
+# echo $LANG 
+
 echo "## Setup for root env"
 echo "# Get .bashrc"
 cd ~/
