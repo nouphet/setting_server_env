@@ -38,6 +38,10 @@ cd /usr/local/src/
 # source ~/.bash_profile 
 # echo $LANG 
 
+echo "yum -y install ntp vim"
+yum -y install ntp vim
+
+
 echo "## Setup for root env"
 echo "# Get .bashrc"
 cd ~/
