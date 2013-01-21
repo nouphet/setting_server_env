@@ -201,8 +201,8 @@ echo "# disable SELinux"
 getenforce
 setenforce 0
 getenforce
-vim /etc/sysconfig/selinux
-perl -p -i.bak -e 's/enable/disabled/g' $ZABBIX_CONF
+#vim /etc/sysconfig/selinux
+perl -p -i.bak -e 's/enable/disabled/g' /etc/sysconfig/selinux
 
 echo "# disable ip6tables"
 chkconfig ip6tables off
