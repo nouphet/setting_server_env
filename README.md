@@ -25,6 +25,7 @@ Common Settings for My Server
 ```
 
 ```bash
+yum -y install ntp vim fping wget curl git
 wget --no-check-certificate https://raw.github.com/nouphet/setting_server_env/master/setting_server_env.sh
 ```
 
