@@ -38,8 +38,8 @@ cd /usr/local/src/
 # source ~/.bash_profile 
 # echo $LANG 
 
-echo "yum -y install ntp vim"
-yum -y install ntp vim
+echo "yum -y install ntp vim fping wget curl git"
+yum -y install ntp vim fping wget curl git
 
 
 echo "## Setup for root env"
