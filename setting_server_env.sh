@@ -166,10 +166,9 @@ read Enter
 
 cd /etc
 etckeeper init
-etckeeper pre-commit
-etckeeper pre-commit
-etckeeper pre-install
-etckeeper post-install
+#etckeeper pre-commit
+#etckeeper pre-install
+#etckeeper post-install
 etckeeper commit
 echo "Press Enter"
 read Enter
