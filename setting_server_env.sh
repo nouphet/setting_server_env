@@ -202,7 +202,7 @@ getenforce
 setenforce 0
 getenforce
 #vim /etc/sysconfig/selinux
-perl -p -i.bak -e 's/enable/disabled/g' /etc/sysconfig/selinux
+perl -p -i.bak -e 's/enforcing/disabled/g' /etc/sysconfig/selinux
 
 echo "# disable ip6tables"
 chkconfig ip6tables off
