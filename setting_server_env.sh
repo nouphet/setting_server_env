@@ -4,7 +4,7 @@ USER=`whoami`
 
 if [ "$USER" != 'root' ]
 then
-    echo "rootでコマンドを実行してください。"
+    echo "rootでスクリプトを実行してください。"
     echo "Press Enter"
     read Enter
     exit 1
@@ -51,8 +51,8 @@ if [ -f .bashrc ]; then
 fi
 mv dot.bashrc_for_CentOS .bashrc
 ls -l ~/.bashrc
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 echo "# get config files"
 cd ~/
@@ -62,18 +62,18 @@ if [ -f .gitconig ]; then
 fi
 mv dot.gitconfig ~/.gitconfig
 ls -l ~/.gitconfig
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 echo "# setup sudo"
 visudo
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 echo "## install yum-priorities"
 yum -y install yum-priorities
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 
 echo "## install dstat"
@@ -90,8 +90,8 @@ else
 	rpm -ivh dstat-0.7.2-1.el5.rfx.noarch.rpm
 fi
 
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 echo "## add epel repository for CentOS 6"
 if [ -f /etc/redhat-release ]
@@ -149,39 +149,39 @@ then
         chkconfig cups off
     fi
 fi
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 yum -y install screen git tree ack
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 yum --enablerepo=epel -y install etckeeper
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 yum --enablerepo=epel -y install bash-completion
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 cd /etc
 etckeeper init
 #etckeeper pre-commit
 #etckeeper pre-install
-#etckeeper post-install
+etckeeper post-install
 etckeeper commit
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 gem install rak
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 echo "# define git"
 git config --global core.editor 'vim -c "set fenc=utf-8"'
 git config --global http.sslVerify false
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 echo "# 時刻同期デーモンの有効化"
 date
@@ -194,14 +194,15 @@ NTP_IP=`ntpq -p |grep -v remote |grep -v "=====" |head -1 |awk '{print $2}'`
 ntpdate $NTP_IP
 /etc/init.d/ntpd start
 date
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
 
 echo "# disable SELinux"
 getenforce
 setenforce 0
 getenforce
 vim /etc/sysconfig/selinux
+perl -p -i.bak -e 's/enable/disabled/g' $ZABBIX_CONF
 
 echo "# disable ip6tables"
 chkconfig ip6tables off
@@ -213,5 +214,6 @@ echo "iptablesを必要に応じて設定して下さい。"
 echo ""
 echo "サーバをリブートして下さい。"
 echo "コマンドを実行してください。 reboot"
-echo "Press Enter"
-read Enter
+#echo "Press Enter"
+#read Enter
+
