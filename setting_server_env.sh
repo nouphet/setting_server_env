@@ -56,7 +56,7 @@ ls -l ~/.bashrc
 
 echo "# get config files"
 cd ~/
-wget --no-check-certificate https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig --no-check-certificate
+wget --no-check-certificate https://raw.github.com/nouphet/dotfiles/master/dot.gitconfig
 if [ -f .gitconig ]; then
 	mv .gitconfig .gitconfig_`date +%Y%m%d%H%M%S`
 fi
