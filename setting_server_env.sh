@@ -152,15 +152,8 @@ fi
 #echo "Press Enter"
 #read Enter
 
-yum -y install screen git tree ack
-#echo "Press Enter"
-#read Enter
-
-yum --enablerepo=epel -y install etckeeper
-#echo "Press Enter"
-#read Enter
-
-yum --enablerepo=epel -y install bash-completion
+echo "yum --enablerepo=epel -y install screen git tree ack etckeeper bash-completion"
+yum --enablerepo=epel -y install screen git tree ack etckeeper bash-completion
 #echo "Press Enter"
 #read Enter
 
