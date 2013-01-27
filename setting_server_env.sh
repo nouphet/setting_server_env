@@ -78,16 +78,15 @@ yum -y install yum-priorities
 
 echo "## install dstat"
 
-if [ `rpm -q dstat` = "dstat-0.7.2-1.el5.rfx" ]; then
-	echo "`rpm -q dstat` がインストールされています。"
-	echo "`rpm -q dstat` をアンインストールします。"
+if [ `rpm -q dstat` == "dstat-0.7.2-1.el5.rfx" ]; then
+        echo "`rpm -q dstat` がインストールされています。"
 else
-	echo "`rpm -q dstat` がインストールされています。"
-	echo "dstat-0.7.2-1.el5.rfx.noarch.rpm をインストールします。"
-	cd /usr/local/src/
-	rpm -e dstat
-	wget ftp://ftp.univie.ac.at/systems/linux/dag/redhat/el5/en/x86_64/extras/RPMS/dstat-0.7.2-1.el5.rfx.noarch.rpm
-	rpm -ivh dstat-0.7.2-1.el5.rfx.noarch.rpm
+        echo "dstat-0.7.2-1.el5.rfx 以外のバージョン (`rpm -q dstat`) がインストールされています。"
+        echo "`rpm -q dstat` をアンインストールして、dstat-0.7.2-1.el5.rfx.noarch.rpm をインストールします。"
+        cd /usr/local/src/
+        rpm -e dstat
+        wget ftp://ftp.univie.ac.at/systems/linux/dag/redhat/el5/en/x86_64/extras/RPMS/dstat-0.7.2-1.el5.rfx.noarch.rpm
+        rpm -ivh dstat-0.7.2-1.el5.rfx.noarch.rpm
 fi
 
 #echo "Press Enter"
@@ -106,18 +105,34 @@ then
             echo "RHEL 5.x / CentOS 5.x / OEL 5.x x86_64 が検出されました。"
             echo "#########################################################################"
             echo "# add epel repository for CentOS 5 64bit"
-	    wget http://ftp.riken.jp/Linux/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
-	    rpm -ivh epel-release-5-4.noarch.rpm
+            if [ `rpm -q epel-release` == "epel-release-5-4" ]
+            then
+                echo "`rpm -q epel-release`がインストール済みです。"
+                echo "Go To Next."
+                echo ""
+            else
+                echo "epel-release-5-4.noarch.rpmをインストールします。"
+                cd /usr/local/src/
+	        wget http://ftp.riken.jp/Linux/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
+	        rpm -ivh epel-release-5-4.noarch.rpm
+            fi
         else
             echo ""
             echo "#########################################################################"
             echo "RHEL 5.x / CentOS 5.x / OEL 5.x 386 が検出されました。"
             echo "#########################################################################"
             echo "# add epel repository for CentOS 5 32bit"
-            cd /usr/local/src/
-            wget http://ftp.riken.jp/Linux/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
-            rpm -ivh epel-release-5-4.noarch.rpm
-            #exit 1
+            if [ `rpm -q epel-release` == "epel-release-5-4" ]
+            then
+                echo "`rpm -q epel-release`がインストール済みです。"
+                echo "Go To Next."
+                echo ""
+            else
+                echo "epel-release-5-4.noarch.rpmをインストールします。"
+                cd /usr/local/src/
+                wget http://ftp.riken.jp/Linux/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
+                rpm -ivh epel-release-5-4.noarch.rpm
+            fi
         fi
         # Stop Services for CentOS 5
         chkconfig yum-updatesd off
@@ -132,18 +147,34 @@ then
             echo "RHEL 6.x / CentOS 6.x / OEL 6.x x86_64 が検出されました。"
             echo "#########################################################################"
             echo "# add epel repository for CentOS 6 64bit"
-            cd /usr/local/src/
-            wget http://ftp.riken.jp/Linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
-            rpm -ivh epel-release-6-8.noarch.rpm
+            if [ `rpm -q epel-release` == "epel-release-6-8" ]
+            then
+                echo "`rpm -q epel-release`がインストール済みです。"
+                echo "Go To Next."
+                echo ""
+            else
+                echo "epel-release-6-8.noarch.rpmをインストールします。"
+                cd /usr/local/src/
+                wget http://ftp.riken.jp/Linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+                rpm -ivh epel-release-6-8.noarch.rpm
+            fi
         else
             echo ""
             echo "#########################################################################"
             echo "RHEL 6.x / CentOS 6.x / OEL 6.x 386 が検出されました。"
             echo "#########################################################################"
             echo "# add epel repository for CentOS 6 32bit"
-            cd /usr/local/src/
-            wget http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
-            rpm -ivh epel-release-6-8.noarch.rpm
+            if [ `rpm -q epel-release` == "epel-release-6-8" ]
+            then
+                echo "`rpm -q epel-release`がインストール済みです。"
+                echo "Go To Next."
+                echo ""
+            else
+                echo "epel-release-6-8.noarch.rpmをインストールします。"
+                cd /usr/local/src/
+                wget http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
+                rpm -ivh epel-release-6-8.noarch.rpm
+            fi
         fi
         # Stop Services for CentOS 6
         chkconfig cups off
@@ -166,9 +197,17 @@ etckeeper commit
 #echo "Press Enter"
 #read Enter
 
-gem install rak
-#echo "Press Enter"
-#read Enter
+if [ `gem list -i rak` == "false" ]; then
+    echo "rak をインストールします。"
+    #gem install rak
+    gem install rak --version "~>1.4"
+    #echo "Press Enter"
+    #read Enter
+else
+    echo "下記の rak がインストールされています。"
+    gem list -d "rak"
+fi
+echo ""
 
 echo "# define git"
 git config --global core.editor 'vim -c "set fenc=utf-8"'
@@ -209,4 +248,3 @@ echo "サーバをリブートして下さい。"
 echo "コマンドを実行してください。 reboot"
 #echo "Press Enter"
 #read Enter
-
