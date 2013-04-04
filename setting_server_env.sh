@@ -139,7 +139,7 @@ then
         chkconfig pcscd off
         chkconfig bluetooth off
         chkconfig cups off
-	
+    fi
     CHK=`egrep "CentOS release 5|Red Hat Enterprise Linux .* 5|Red Hat Enterprise Linux ES release 5" /etc/redhat-release`
     if [ "$CHK" != '' ]
     then
@@ -184,6 +184,7 @@ then
         chkconfig pcscd off
         chkconfig bluetooth off
         chkconfig cups off
+    fi
     CHK=`egrep "CentOS release 5|Red Hat Enterprise Linux .* 5|Red Hat Enterprise Linux ES release 5" /etc/redhat-release`
     if [ "$CHK" != '' ]
     then
@@ -295,3 +296,4 @@ echo "サーバをリブートして下さい。"
 echo "コマンドを実行してください。 reboot"
 #echo "Press Enter"
 #read Enter
+
