@@ -92,10 +92,55 @@ fi
 #echo "Press Enter"
 #read Enter
 
-echo "## add epel repository for CentOS 6"
+echo "## add epel repository for CentOS 4 or 5 or 6"
 if [ -f /etc/redhat-release ]
 then
-    CHK=`egrep "CentOS release 5|Red Hat Enterprise Linux .* 5" /etc/redhat-release`
+    CHK=`egrep "CentOS release 4|Red Hat Enterprise Linux * 4|Red Hat Enterprise Linux ES release 4" /etc/redhat-release`
+    if [ "$CHK" != '' ]
+    then
+        if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
+        then
+            echo ""
+            echo "#########################################################################"
+            echo "RHEL 4.x / CentOS 4.x / OEL 4.x x86_64 が検出されました。"
+            echo "#########################################################################"
+            echo "# add epel repository for CentOS 4 64bit"
+            if [ `rpm -q epel-release` == "epel-release-4-10" ]
+            then
+                echo "`rpm -q epel-release`がインストール済みです。"
+                echo "Go To Next."
+                echo ""
+            else
+                echo "epel-release-4-10.noarch.rpmをインストールします。"
+                cd /usr/local/src/
+	        wget http://ftp.riken.jp/Linux/fedora/epel/4ES/x86_64/epel-release-4-10.noarch.rpm
+	        rpm -ivh epel-release-4-10.noarch.rpm
+            fi
+        else
+            echo ""
+            echo "#########################################################################"
+            echo "RHEL 4.x / CentOS 4.x / OEL 4.x 386 が検出されました。"
+            echo "#########################################################################"
+            echo "# add epel repository for CentOS 4 32bit"
+            if [ `rpm -q epel-release` == "epel-release-4-10" ]
+            then
+                echo "`rpm -q epel-release`がインストール済みです。"
+                echo "Go To Next."
+                echo ""
+            else
+                echo "epel-release-4-10.noarch.rpmをインストールします。"
+                cd /usr/local/src/
+                wget http://ftp.riken.jp/Linux/fedora/epel/4ES/i386/epel-release-4-10.noarch.rpm
+                rpm -ivh epel-release-4-10.noarch.rpm
+            fi
+        fi
+        # Stop Services for CentOS 4
+        chkconfig yum-updatesd off
+        chkconfig pcscd off
+        chkconfig bluetooth off
+        chkconfig cups off
+	
+    CHK=`egrep "CentOS release 5|Red Hat Enterprise Linux .* 5|Red Hat Enterprise Linux ES release 5" /etc/redhat-release`
     if [ "$CHK" != '' ]
     then
         if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
@@ -139,7 +184,9 @@ then
         chkconfig pcscd off
         chkconfig bluetooth off
         chkconfig cups off
-    else
+    CHK=`egrep "CentOS release 5|Red Hat Enterprise Linux .* 5|Red Hat Enterprise Linux ES release 5" /etc/redhat-release`
+    if [ "$CHK" != '' ]
+    then
         if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
         then
             echo ""
