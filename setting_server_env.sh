@@ -185,7 +185,7 @@ then
         chkconfig bluetooth off
         chkconfig cups off
     fi
-    CHK=`egrep "CentOS release 5|Red Hat Enterprise Linux .* 5|Red Hat Enterprise Linux ES release 5" /etc/redhat-release`
+    CHK=`egrep "CentOS release 6|Red Hat Enterprise Linux .* 6|Red Hat Enterprise Linux ES release 6" /etc/redhat-release`
     if [ "$CHK" != '' ]
     then
         if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
