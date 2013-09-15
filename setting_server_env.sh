@@ -40,6 +40,7 @@ cd /usr/local/src/
 
 echo "yum -y install ntp vim fping wget curl git"
 yum -y install ntp vim fping wget curl git
+yum -y groupinstall "Development tools"
 
 
 echo "## Setup for root env"
