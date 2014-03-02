@@ -31,7 +31,14 @@ wget --no-check-certificate https://raw.github.com/nouphet/setting_server_env/ma
 
 自分用おまけ
 ==================
+グローバルIPを確認する方法
 
 ```bash
 $ curl http://dyn.value-domain.com/cgi-bin/dyn.fcg?ip
+```
+
+Linuxのローカルタイムを日本時間に変更する方法
+
+```bash
+# cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 ```
