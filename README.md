@@ -40,5 +40,7 @@ $ curl http://dyn.value-domain.com/cgi-bin/dyn.fcg?ip
 Linuxのローカルタイムを日本時間に変更する方法
 
 ```bash
-# cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+# mv /etc/localtime /etc/localtime.orig; ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+or
+# mv /etc/localtime /etc/localtime.orig; cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 ```
