@@ -66,8 +66,8 @@ ls -l ~/.gitconfig
 #echo "Press Enter"
 #read Enter
 
-echo "# setup sudo"
-visudo
+#echo "# setup sudo"
+#visudo
 #echo "Press Enter"
 #read Enter
 
