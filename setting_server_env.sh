@@ -40,6 +40,7 @@ cd /usr/local/src/
 
 echo "yum -y install ntp vim fping wget curl git"
 yum -y install ntp vim fping wget curl git
+yum -y groupinstall "Development tools"
 
 
 echo "## Setup for root env"
@@ -65,8 +66,8 @@ ls -l ~/.gitconfig
 #echo "Press Enter"
 #read Enter
 
-echo "# setup sudo"
-visudo
+#echo "# setup sudo"
+#visudo
 #echo "Press Enter"
 #read Enter
 
@@ -113,8 +114,8 @@ then
             else
                 echo "epel-release-4-10.noarch.rpmをインストールします。"
                 cd /usr/local/src/
-	        wget http://ftp.riken.jp/Linux/fedora/epel/4ES/x86_64/epel-release-4-10.noarch.rpm
-	        rpm -ivh epel-release-4-10.noarch.rpm
+          wget http://ftp.riken.jp/Linux/fedora/epel/4ES/x86_64/epel-release-4-10.noarch.rpm
+          rpm -ivh epel-release-4-10.noarch.rpm
             fi
         else
             echo ""
@@ -139,7 +140,7 @@ then
         chkconfig pcscd off
         chkconfig bluetooth off
         chkconfig cups off
-	
+    fi
     CHK=`egrep "CentOS release 5|Red Hat Enterprise Linux .* 5|Red Hat Enterprise Linux ES release 5" /etc/redhat-release`
     if [ "$CHK" != '' ]
     then
@@ -158,8 +159,8 @@ then
             else
                 echo "epel-release-5-4.noarch.rpmをインストールします。"
                 cd /usr/local/src/
-	        wget http://ftp.riken.jp/Linux/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
-	        rpm -ivh epel-release-5-4.noarch.rpm
+          wget http://ftp.riken.jp/Linux/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
+          rpm -ivh epel-release-5-4.noarch.rpm
             fi
         else
             echo ""
@@ -184,7 +185,8 @@ then
         chkconfig pcscd off
         chkconfig bluetooth off
         chkconfig cups off
-    CHK=`egrep "CentOS release 5|Red Hat Enterprise Linux .* 5|Red Hat Enterprise Linux ES release 5" /etc/redhat-release`
+    fi
+    CHK=`egrep "CentOS release 6|Red Hat Enterprise Linux .* 6|Red Hat Enterprise Linux ES release 6" /etc/redhat-release`
     if [ "$CHK" != '' ]
     then
         if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
@@ -295,3 +297,4 @@ echo "サーバをリブートして下さい。"
 echo "コマンドを実行してください。 reboot"
 #echo "Press Enter"
 #read Enter
+
