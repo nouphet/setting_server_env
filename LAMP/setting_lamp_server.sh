@@ -4,9 +4,6 @@
 # Auther: Toshihiro Takehara aka nouphet
 # All rights reserved - Do Not Redistribute
 
-PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
-SCRIPT_NAME=$0
-
 ## パラメータの設定
 ### Set to Apache HTTP Server
 SITE_DOMAIN="sample-domein.com"
@@ -35,13 +32,8 @@ fi
 echo "cd /usr/local/src/"
 cd /usr/local/src/
 
-# 必要となる基本的なパッケージ類をインストール
-echo "## install yum-priorities"
-yum -y install yum-priorities
-
-echo "yum -y install ntp vim fping wget curl git"
-yum -y install ntp vim fping wget curl git
-yum -y groupinstall "Development tools"
+echo "yum -y install ntp vim"
+yum -y install ntp vim
 
 
 # タイムゾーンの確認と変更
@@ -50,10 +42,6 @@ date
 cp -p /usr/share/zoneinfo/Japan /etc/localtime
 echo "日付表示の変更後確認"
 date
-
-# 日本語関連のパッケージをグループインストール
-# 不要な場合はコメントアウトしておく
-# yum -y groupinstall "Japanese Support"
 
 # vim /etc/sysconfig/i18n
 # LANG="ja_JP.UTF-8"
@@ -143,96 +131,6 @@ fi
 echo "## add epel repository for CentOS 4 or 5 or 6"
 if [ -f /etc/redhat-release ]
 then
-    CHK=`egrep "CentOS release 4|Red Hat Enterprise Linux * 4|Red Hat Enterprise Linux ES release 4" /etc/redhat-release`
-    if [ "$CHK" != '' ]
-    then
-        if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
-        then
-            echo ""
-            echo "#########################################################################"
-            echo "RHEL 4.x / CentOS 4.x / OEL 4.x x86_64 が検出されました。"
-            echo "#########################################################################"
-            echo "# add epel repository for CentOS 4 64bit"
-            if [ `rpm -q epel-release` == "epel-release-4-10" ]
-            then
-                echo "`rpm -q epel-release`がインストール済みです。"
-                echo "Go To Next."
-                echo ""
-            else
-                echo "epel-release-4-10.noarch.rpmをインストールします。"
-                cd /usr/local/src/
-          wget http://ftp.riken.jp/Linux/fedora/epel/4ES/x86_64/epel-release-4-10.noarch.rpm
-          rpm -ivh epel-release-4-10.noarch.rpm
-            fi
-        else
-            echo ""
-            echo "#########################################################################"
-            echo "RHEL 4.x / CentOS 4.x / OEL 4.x 386 が検出されました。"
-            echo "#########################################################################"
-            echo "# add epel repository for CentOS 4 32bit"
-            if [ `rpm -q epel-release` == "epel-release-4-10" ]
-            then
-                echo "`rpm -q epel-release`がインストール済みです。"
-                echo "Go To Next."
-                echo ""
-            else
-                echo "epel-release-4-10.noarch.rpmをインストールします。"
-                cd /usr/local/src/
-                wget http://ftp.riken.jp/Linux/fedora/epel/4ES/i386/epel-release-4-10.noarch.rpm
-                rpm -ivh epel-release-4-10.noarch.rpm
-            fi
-        fi
-        # Stop Services for CentOS 4
-        chkconfig yum-updatesd off
-        chkconfig pcscd off
-        chkconfig bluetooth off
-        chkconfig cups off
-    fi
-    CHK=`egrep "CentOS release 5|Red Hat Enterprise Linux .* 5|Red Hat Enterprise Linux ES release 5" /etc/redhat-release`
-    if [ "$CHK" != '' ]
-    then
-        if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
-        then
-            echo ""
-            echo "#########################################################################"
-            echo "RHEL 5.x / CentOS 5.x / OEL 5.x x86_64 が検出されました。"
-            echo "#########################################################################"
-            echo "# add epel repository for CentOS 5 64bit"
-            if [ `rpm -q epel-release` == "epel-release-5-4" ]
-            then
-                echo "`rpm -q epel-release`がインストール済みです。"
-                echo "Go To Next."
-                echo ""
-            else
-                echo "epel-release-5-4.noarch.rpmをインストールします。"
-                cd /usr/local/src/
-          wget http://ftp.riken.jp/Linux/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
-          rpm -ivh epel-release-5-4.noarch.rpm
-            fi
-        else
-            echo ""
-            echo "#########################################################################"
-            echo "RHEL 5.x / CentOS 5.x / OEL 5.x 386 が検出されました。"
-            echo "#########################################################################"
-            echo "# add epel repository for CentOS 5 32bit"
-            if [ `rpm -q epel-release` == "epel-release-5-4" ]
-            then
-                echo "`rpm -q epel-release`がインストール済みです。"
-                echo "Go To Next."
-                echo ""
-            else
-                echo "epel-release-5-4.noarch.rpmをインストールします。"
-                cd /usr/local/src/
-                wget http://ftp.riken.jp/Linux/fedora/epel/5/i386/epel-release-5-4.noarch.rpm
-                rpm -ivh epel-release-5-4.noarch.rpm
-            fi
-        fi
-        # Stop Services for CentOS 5
-        chkconfig yum-updatesd off
-        chkconfig pcscd off
-        chkconfig bluetooth off
-        chkconfig cups off
-    fi
     CHK=`egrep "CentOS release 6|Red Hat Enterprise Linux .* 6|Red Hat Enterprise Linux ES release 6" /etc/redhat-release`
     if [ "$CHK" != '' ]
     then
