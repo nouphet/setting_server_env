@@ -11,8 +11,8 @@ then
 else
     echo "rootです。"
     echo "このまま処理を続行します。"
-    echo "Press Enter"
-    read Enter
+    #echo "Press Enter"
+    #read Enter
 fi
 
 echo "cd /usr/local/src/"
