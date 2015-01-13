@@ -42,7 +42,7 @@ date
 
 #echo "yum -y install ntp vim fping wget curl git"
 echo "yum -y install ntp vim wget git"
-yum -y install ntp vim fping wget curl git
+yum -y install ntp vim wget curl git
 #yum -y groupinstall "Development tools"
 
 
