@@ -21,17 +21,16 @@ Common Settings for My Server
 
 ```bash
 # cd /usr/local/src/
-# curl -L https://raw.github.com/nouphet/setting_server_env/master/setting_server_env.sh | bash
+# curl -L https://raw.github.com/nouphet/setting_server_env/master/setting_server_env_light.sh | bash
 ```
 
 ```bash
 yum -y install ntp vim fping wget curl git
-wget --no-check-certificate https://raw.github.com/nouphet/setting_server_env/master/setting_server_env.sh
+wget --no-check-certificate https://raw.github.com/nouphet/setting_server_env/master/setting_server_env_light.sh
 ```
 or
 ```bash
-yum -y install ntp vim fping wget curl git
-wget --no-check-certificate https://raw.github.com/nouphet/setting_server_env/master/setting_server_env_light.sh
+yum -y install ntp vim fping wget curl git && wget --no-check-certificate https://raw.github.com/nouphet/setting_server_env/master/setting_server_env_light.sh
 ```
 
 

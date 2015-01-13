@@ -11,8 +11,8 @@ then
 else
     echo "rootです。"
     echo "このまま処理を続行します。"
-    echo "Press Enter"
-    read Enter
+    #echo "Press Enter"
+    #read Enter
 fi
 
 echo "cd /usr/local/src/"
@@ -232,6 +232,11 @@ then
         chkconfig cups off
     fi
 fi
+
+#vim /etc/yum.repos.d/epel.repo
+perl -p -i.bak -e 's/\#baseurl/baseurl/g'       /etc/yum.repos.d/epel.repo
+perl -p -i.bak -e 's/mirrorlist/\#mirrorlist/g' /etc/yum.repos.d/epel.repo
+
 #echo "Press Enter"
 #read Enter
 
