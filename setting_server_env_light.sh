@@ -19,10 +19,11 @@ echo "cd /usr/local/src/"
 cd /usr/local/src/
 
 # タイムゾーンの変更
-# date
-# cp -p /usr/share/zoneinfo/Japan /etc/localtime
-# date
-echo "タイムゾーンの設定をスキップします。"
+echo "タイムゾーンを設定します。"
+date
+cp -p /usr/share/zoneinfo/Japan /etc/localtime
+date
+# echo "タイムゾーンの設定をスキップします。"
 
 # 日本語関連のパッケージをグループインストール
 # yum -y groupinstall "Japanese Support"
@@ -39,9 +40,10 @@ echo "タイムゾーンの設定をスキップします。"
 # source ~/.bash_profile 
 # echo $LANG 
 
-echo "yum -y install ntp vim fping wget curl git"
+#echo "yum -y install ntp vim fping wget curl git"
+echo "yum -y install ntp vim wget git"
 yum -y install ntp vim fping wget curl git
-yum -y groupinstall "Development tools"
+#yum -y groupinstall "Development tools"
 
 
 echo "## Setup for root env"
