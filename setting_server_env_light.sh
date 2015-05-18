@@ -231,6 +231,42 @@ then
         # Stop Services for CentOS 6
         chkconfig cups off
     fi
+    CHK=`egrep "CentOS Linux release 7|Red Hat Enterprise Linux .* 7|Red Hat Enterprise Linux ES release 7" /etc/redhat-release`
+    if [ "$CHK" != '' ]
+    then
+        if [ `uname -a | grep x86_64 | awk '{ print $12 }'` == "x86_64" ]
+        then
+            echo ""
+            echo "#########################################################################"
+            echo "RHEL 7.x / CentOS 7.x / OEL 7.x x86_64 が検出されました。"
+            echo "#########################################################################"
+            echo "# add epel repository for CentOS 7 64bit"
+            if [ `rpm -q epel-release` == "epel-release-6-8" ]
+            then
+                echo "`rpm -q epel-release`がインストール済みです。"
+                echo "Go To Next."
+                echo ""
+            else
+                echo "epel-release-7をインストールします。"
+                yum install epel-release
+            fi
+        else
+            echo ""
+            echo "#########################################################################"
+            echo "RHEL 7.x / CentOS 7.x / OEL 7.x 386 が検出されました。"
+            echo "#########################################################################"
+            echo "# add epel repository for CentOS 7 32bit"
+            if [ `rpm -q epel-release` == "epel-release-6-8" ]
+            then
+                echo "`rpm -q epel-release`がインストール済みです。"
+                echo "Go To Next."
+                echo ""
+            else
+                echo "epel-release-7をインストールします。"
+                yum install epel-release
+            fi
+        fi
+    fi
 fi
 
 #vim /etc/yum.repos.d/epel.repo
