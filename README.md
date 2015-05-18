@@ -12,7 +12,7 @@ Common Settings for My Server
     </tr>
     <tr>
         <td>CentOS</td>
-        <td>5, 6</td>
+        <td>5.x, 6.x, 7.x</td>
     </tr>
 </table>
 
