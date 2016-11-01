@@ -248,7 +248,7 @@ then
                 echo ""
             else
                 echo "epel-release-7をインストールします。"
-                yum install epel-release
+                yum install -y epel-release
             fi
         else
             echo ""
@@ -263,7 +263,7 @@ then
                 echo ""
             else
                 echo "epel-release-7をインストールします。"
-                yum install epel-release
+                yum install -y epel-release
             fi
         fi
     fi
