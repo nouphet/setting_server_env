@@ -39,7 +39,7 @@ yum -y install ntp vim fping wget curl git && wget --no-check-certificate https:
 グローバルIPを確認する方法
 
 ```bash
-$ curl http://dyn.value-domain.com/cgi-bin/dyn.fcg?ip
+$ curl http://dyn.value-domain.com/cgi-bin/dyn.fcg?ip && echo ""
 ```
 
 Linuxのローカルタイムを日本時間に変更する方法
