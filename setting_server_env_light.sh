@@ -96,7 +96,7 @@ yum -y install yum-priorities
 #echo "Press Enter"
 #read Enter
 
-echo "## add epel repository for CentOS 4 or 5 or 6"
+echo "## add epel repository for CentOS 4 or 5 or 6 or 7"
 if [ -f /etc/redhat-release ]
 then
     CHK=`egrep "CentOS release 4|Red Hat Enterprise Linux * 4|Red Hat Enterprise Linux ES release 4" /etc/redhat-release`
